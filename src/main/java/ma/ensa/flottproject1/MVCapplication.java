@@ -1,6 +1,6 @@
 package ma.ensa.flottproject1;
 
-import ma.ensa.flottproject1.entities.Vehicule;
+import ma.ensa.flottproject1.entities.vehicule.Vehicule;
 import ma.ensa.flottproject1.repository.VehiculeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

@@ -1,8 +1,9 @@
-package ma.ensa.flottproject1.entities;
+package ma.ensa.flottproject1.entities.conducteur;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.ensa.flottproject1.entities.voyage.Voyage;
 
 import java.util.Date;
 import java.util.List;
@@ -19,9 +20,6 @@ public class Conducteur {
     private Date dateNaissance;
     private String matricule;
     private String CIN;
-    private String numeroPermis;
-    private Date dateRemisPermis;
-    private char typePermis;
     @OneToMany(mappedBy = "conducteur")
     private List<Voyage> listVoyages;
 
@@ -33,5 +31,9 @@ public class Conducteur {
 
     @OneToMany(mappedBy = "conducteur")
     private List<Experience> listExperience;
+
+    @OneToOne
+    private Permis permis;
+
 }
 

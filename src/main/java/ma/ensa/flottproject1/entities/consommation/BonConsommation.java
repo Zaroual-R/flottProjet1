@@ -1,9 +1,10 @@
-package ma.ensa.flottproject1.entities;
+package ma.ensa.flottproject1.entities.consommation;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.ensa.flottproject1.entities.voyage.Voyage;
 
 import java.util.Date;
 

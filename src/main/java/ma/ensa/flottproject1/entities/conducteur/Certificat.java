@@ -1,4 +1,4 @@
-package ma.ensa.flottproject1.entities;
+package ma.ensa.flottproject1.entities.conducteur;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
