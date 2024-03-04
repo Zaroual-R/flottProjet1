@@ -24,9 +24,9 @@ public class ConducteurServiceImp implements ConducteurService {
     }
 
     @Override
-    public Conducteur updateConducteur(Conducteur newconducteur) {
-        if(conducteurRepository.existsById(newconducteur.getIdConducteur())){
-            return conducteurRepository.save(newconducteur);
+    public Conducteur updateConducteur(Conducteur newconducteure) {
+        if(conducteurRepository.existsById(newconducteure.getIdConducteur())){
+            return conducteurRepository.save(newconducteure);
         }
         return null;
     }
