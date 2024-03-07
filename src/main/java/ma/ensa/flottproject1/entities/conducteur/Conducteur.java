@@ -1,6 +1,7 @@
 package ma.ensa.flottproject1.entities.conducteur;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.ensa.flottproject1.entities.vehicule.TypeVehicule;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 @Data
 @AllArgsConstructor @NoArgsConstructor
+@Builder
 public class Conducteur {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
