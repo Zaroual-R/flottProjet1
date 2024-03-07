@@ -1,9 +1,10 @@
-package ma.ensa.flottproject1.entities.vehicule;
+package ma.ensa.flottproject1.entities.consommation.rapports;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.ensa.flottproject1.entities.vehicule.Vehicule;
 
 import java.util.Date;
 
@@ -11,18 +12,14 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CarteGrise {
-
+public class RapportParVehicule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long idRapport;
+    private Date reportDate;
 
-    private String immatriculationAnterieur;
-    private Date premierMiseEnCirculation;
-    private Date mCauMaroc;
-    private Date finDeValidite;
-
-    @OneToOne
+    @ManyToOne
     private Vehicule vehicule;
+
 
 }

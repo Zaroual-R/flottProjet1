@@ -5,24 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CarteGrise {
-
+public class VisiteTechnique {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String immatriculationAnterieur;
-    private Date premierMiseEnCirculation;
-    private Date mCauMaroc;
-    private Date finDeValidite;
+    private LocalDate dateVisite;
+    private LocalDate dateExpiration;
 
-    @OneToOne
+    private String centreVisite;
+
+    private boolean attestationConformite;
+
+    @ManyToOne
     private Vehicule vehicule;
-
 }

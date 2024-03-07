@@ -5,24 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CarteGrise {
-
+public class Marque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long marqueId;
 
-    private String immatriculationAnterieur;
-    private Date premierMiseEnCirculation;
-    private Date mCauMaroc;
-    private Date finDeValidite;
+    private String marqueNom;
 
-    @OneToOne
-    private Vehicule vehicule;
+    @OneToMany(mappedBy = "marque")
+    private List<Vehicule> vehiculeList;
 
 }
