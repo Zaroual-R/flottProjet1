@@ -1,6 +1,10 @@
 package ma.ensa.flottproject1.serviceImp;
 
+import ma.ensa.flottproject1.constants.ErrorMessages;
+import ma.ensa.flottproject1.constants.RessourceTypeConstants;
 import ma.ensa.flottproject1.entities.conducteur.Conducteur;
+import ma.ensa.flottproject1.exceptions.RessourceAlreadyExistException;
+import ma.ensa.flottproject1.exceptions.RessourceNotFoundException;
 import ma.ensa.flottproject1.repository.ConducteurRepository;
 import ma.ensa.flottproject1.service.ConducteurService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +21,12 @@ public class ConducteurServiceImp implements ConducteurService {
 
     @Override
     public Conducteur createConducteur(Conducteur newconducteur) {
-        //Conducteur conducteur = conducteurRepository.findById(newconducteur.getIdConducteur()).get();
+
+            Conducteur conducteur = conducteurRepository.findConducteurByMatricule(newconducteur.getMatricule()).get();
+            if(conducteur != null){
+                throw new RessourceAlreadyExistException(RessourceTypeConstants.CONDUCTEUR,newconducteur.getMatricule(), ErrorMessages.ConducteurExistAlreadyMessage);
+            }
+
 
             return conducteurRepository.save(newconducteur);
 
@@ -25,10 +34,10 @@ public class ConducteurServiceImp implements ConducteurService {
 
     @Override
     public Conducteur updateConducteur(Conducteur newconducteure) {
-        if(conducteurRepository.existsById(newconducteure.getIdConducteur())){
+        if(conducteurRepository.existsByMatricule(newconducteure.getMatricule())){
             return conducteurRepository.save(newconducteure);
         }
-        return null;
+        throw new RessourceNotFoundException(RessourceTypeConstants.CONDUCTEUR,newconducteure.getMatricule(),ErrorMessages.ConducteurNotFoundMessage);
     }
 
     @Override

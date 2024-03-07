@@ -1,6 +1,8 @@
 package ma.ensa.flottproject1.entities.conducteur;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,7 +17,9 @@ import java.util.Date;
 public class Permis {
     @Id
     private String numeroPermis;
-    private char typePermis;
+
+    @Enumerated(EnumType.STRING)
+    private TypePermis typePermis;
     private Date dateRemis;
     private Date dateFinValidite;
 

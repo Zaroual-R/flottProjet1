@@ -21,7 +21,6 @@ public class VisiteTechnique {
 
     private String centreVisite;
 
-    private boolean attestationConformite;
 
     @ManyToOne
     private Vehicule vehicule;

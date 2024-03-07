@@ -19,7 +19,7 @@ public class Vehicule {
     private String immatreculation;
 
     private String model ;
-    private String type;
+    private TypeVehicule type;
     private double kilometrage;
     private char typePermisRequis;
     @OneToMany(mappedBy = "vehicule")

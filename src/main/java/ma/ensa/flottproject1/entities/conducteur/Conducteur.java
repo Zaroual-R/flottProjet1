@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.ensa.flottproject1.entities.vehicule.TypeVehicule;
 import ma.ensa.flottproject1.entities.voyage.Voyage;
 
 import java.util.Date;
@@ -18,8 +19,14 @@ public class Conducteur {
     private String prenom;
     private String adress;
     private Date dateNaissance;
+    @Column(unique = true)
     private String matricule;
+
     private String CIN;
+
+    @Enumerated(EnumType.STRING)
+    private TypeVehicule typeVehicule;
+
     @OneToMany(mappedBy = "conducteur")
     private List<Voyage> listVoyages;
 

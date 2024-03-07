@@ -17,7 +17,7 @@ public class Vignette {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate dateDélivrance;
+    private LocalDate dateDelivrance;
 
     private LocalDate dateExpiration;
 
