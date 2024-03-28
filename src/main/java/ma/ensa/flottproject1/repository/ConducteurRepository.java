@@ -9,7 +9,7 @@ import java.util.Optional;
 
 @Repository
 public interface ConducteurRepository extends JpaRepository<Conducteur,Long> {
-    public Optional<Conducteur> findConducteurByMatricule(String matricule);
+    public Optional<Conducteur> findByMatricule(String matricule);
 
     boolean existsByMatricule(String matricule);
 }

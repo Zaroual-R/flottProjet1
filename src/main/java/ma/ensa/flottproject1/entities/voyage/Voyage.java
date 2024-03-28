@@ -5,8 +5,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.ensa.flottproject1.entities.conducteur.Conducteur;
+import ma.ensa.flottproject1.entities.vehicule.TypeVehicule;
 import ma.ensa.flottproject1.entities.vehicule.Vehicule;
 
+import java.lang.reflect.Type;
 import java.util.Date;
 
 @Entity
@@ -22,7 +24,7 @@ public class Voyage {
     private int heurArriveePrevue;
     private String depart;
     private String destination;
-    private String typeVehicule;
+    private TypeVehicule typeVehicule;
     private int nbrPassage;
     private String autreDetails;
 

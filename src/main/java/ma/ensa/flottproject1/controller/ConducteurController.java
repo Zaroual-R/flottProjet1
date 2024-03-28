@@ -24,5 +24,22 @@ public class ConducteurController {
         }
     }
 
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateConducteur(@PathVariable Long id, @RequestBody Conducteur conducteur){
+        Conducteur conducteur1 =  conducteurService.updateConducteur(id,conducteur);
+        return ResponseEntity.status(HttpStatus.OK).body(conducteur1);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getConducteur(@PathVariable Long id){
+        Conducteur conducteur1 =  conducteurService.getConducteurById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(conducteur1);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteConducteurByConducteur(@PathVariable Long id){
+        conducteurService.deleteConducteur(id);
+        return ResponseEntity.status(HttpStatus.OK).body("conducteur supprimé avec succés");
+    }
 
 }
